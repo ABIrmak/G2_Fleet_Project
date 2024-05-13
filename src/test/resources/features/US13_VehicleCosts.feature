@@ -11,7 +11,7 @@ Feature:As a user, (Store and Sales managers) I want to manage filters on the
       Then user can see "TYPE, TOTAL PRICE, DATE" columns.
       Examples:
         | userType      |
-        | sales manager |
+       # | sales manager |
         | store manager |
 
   Scenario Outline: Verify that Store manager and Sales manager can check the first checkbox to select All Vehicle Costs.

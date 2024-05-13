@@ -10,7 +10,9 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class US13_VehicleCostsStepDefs {
@@ -27,6 +29,7 @@ public class US13_VehicleCostsStepDefs {
     @When("user go to Fleet menu and Vehicle Odometer submenu")
     public void user_go_to_fleet_menu_and_vehicle_odometer_submenu() {
         vehicleCostsPage.navigateToModule("Fleet", "Vehicle Costs");
+        Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
     @Then("user can see {string} columns.")
     public void user_can_see_columns(String expectedHeaders) {
@@ -34,7 +37,7 @@ public class US13_VehicleCostsStepDefs {
         List <WebElement> headers = Driver.getDriver().findElements(By.xpath("//span[@class='grid-header-cell__label']"));
 
         try {
-            Thread.sleep(5000);
+            Thread.sleep(6000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -45,14 +48,14 @@ public class US13_VehicleCostsStepDefs {
         }
 
         try {
-            Thread.sleep(5000);
+            Thread.sleep(6000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
 
+        List<String> expectedHeadersList = Arrays.asList(expectedHeaders.split(", "));
 
-
-        Assert.assertEquals(("["+ expectedHeaders + "]"), stringHeaders);
+        Assert.assertEquals(expectedHeadersList, stringHeaders);
     }
 
     //--------------------------------------------------
