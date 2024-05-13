@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class VehicleCostsPage {
+public class VehicleCostsPage extends BasePage {
 
     public VehicleCostsPage() {
         PageFactory.initElements(Driver.getDriver(), this);

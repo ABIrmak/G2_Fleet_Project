@@ -1,3 +1,4 @@
+@Elif
 Feature:As a user, (Store and Sales managers) I want to manage filters on the
   Vehicle Costs page. (Web table and checkbox)
 
@@ -7,8 +8,7 @@ Feature:As a user, (Store and Sales managers) I want to manage filters on the
     Scenario Outline: Verify that Store manager and Sales manager see 3 columns on the Vehicle Costs page.
       When user logged in as "<userType>"
       When user go to Fleet menu and Vehicle Odometer submenu
-      Then user can select all the filters on the Vehicle Costs page
-      Then user can unselect all the filters on the Vehicle Costs page
+      Then user can see "TYPE, TOTAL PRICE, DATE" columns.
       Examples:
         | userType      |
         | sales manager |
