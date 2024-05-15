@@ -1,7 +1,7 @@
 package com.G2_fleet_project.step_definitions;
 
-import com.G2_fleet_project.pages.BasePage;
 import com.G2_fleet_project.pages.VehicleOdometerPage;
+import com.G2_fleet_project.utilities.BrowserUtils;
 import com.G2_fleet_project.utilities.Driver;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -12,16 +12,12 @@ import java.time.Duration;
 public class VehicleOdometerStepDefs {
 
     VehicleOdometerPage vehicleOdometerPage = new VehicleOdometerPage();
-    private BasePage basePage;
 
     @When("user go to Fleet menu and Vehicle Odometer submenu")
     public void user_go_to_fleet_menu_and_vehicle_odometer_submenu() {
+        vehicleOdometerPage.waitUntilLoaderScreenDisappear();
         vehicleOdometerPage.navigateToModule("Fleet", "Vehicle Odometer");
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        BrowserUtils.waitFor(3);
     }
     @Then("user see the error message {string}")
     public void user_see_the_error_message(String errorMessage) {
