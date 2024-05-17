@@ -21,20 +21,21 @@ public class VehicleOdometerStepDefs {
     }
     @Then("user see the error message {string}")
     public void user_see_the_error_message(String errorMessage) {
+        BrowserUtils.waitForVisibility(vehicleOdometerPage.errorMessage, 10);
         Assert.assertTrue(vehicleOdometerPage.errorMessage.isDisplayed());
         Assert.assertEquals(errorMessage, vehicleOdometerPage.errorMessage.getText());
     }
 
     @Then("user see the default page as {string}.")
     public void userSeeTheDefaultPageAs(String expectedPageNumber) {
-        Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        BrowserUtils.waitForVisibility(vehicleOdometerPage.actualPageNumber, 10);
         Assert.assertTrue(vehicleOdometerPage.actualPageNumber.isDisplayed());
         Assert.assertEquals(expectedPageNumber, vehicleOdometerPage.actualPageNumber.getAttribute("value"));
     }
 
     @Then("user see the View Per Page as {string} by default.")
     public void userSeeTheViewPerPageAsByDefault(String expectedViewPerPageButton) {
-        Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        BrowserUtils.waitForVisibility(vehicleOdometerPage.actualPageNumber, 10);
         Assert.assertTrue(vehicleOdometerPage.actualViewPerPageButton.isDisplayed());
         Assert.assertEquals(expectedViewPerPageButton, vehicleOdometerPage.actualViewPerPageButton.getText());
     }
