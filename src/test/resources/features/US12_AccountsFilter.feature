@@ -1,5 +1,5 @@
 @B33G2-52
-Feature: As a user, I should be access to the Oroinc Documentation page
+Feature: As a user, I want to filter customers’ info on the Account page.
 
   #@B33G2-57
   Background: User is already in the log in page
