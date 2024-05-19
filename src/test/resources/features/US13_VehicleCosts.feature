@@ -7,16 +7,16 @@ Feature:As a user, (Store and Sales managers) I want to manage filters on the
 
     Scenario Outline: Verify that Store manager and Sales manager see 3 columns on the Vehicle Costs page.
       When user logged in as "<userType>"
-      When user go to Fleet menu and Vehicle Odometer submenu
+      When user go to Fleet menu and Vehicle Costs submenu
       Then user can see "TYPE, TOTAL PRICE, DATE" columns.
       Examples:
         | userType      |
-       # | sales manager |
+        | sales manager |
         | store manager |
 
   Scenario Outline: Verify that Store manager and Sales manager can check the first checkbox to select All Vehicle Costs.
       When user logged in as "<userType>"
-      When user go to Fleet menu and Vehicle Odometer submenu
+      When user go to Fleet menu and Vehicle Costs submenu
       When user can check the first checkbox
       Then user see that all Vehicle Costs is selected on the Vehicle Costs page
     Examples:
